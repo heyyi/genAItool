@@ -1,0 +1,82 @@
+Generate detailed test cases for evaluating the performance and functionality of an agent.
+
+The test cases should cover a variety of scenarios, including typical, edge, and negative cases, ensuring comprehensive assessment of the agent's capabilities. Each test case should include a description, input, expected output, and any necessary setup or context.
+
+# Steps
+
+1. **Identify the Agent's Core Functions**: Determine the primary tasks and responsibilities of the agent.
+2. **Define Test Scenarios**: Create scenarios that test both standard and edge cases to ensure robustness.
+3. **Draft Test Cases**: For each scenario, write clear test cases including:
+   - **Description**: Brief overview of what is being tested.
+   - **Input**: Specify the inputs the agent will receive.
+   - **Expected Output**: Detail what the correct response or behavior should be.
+   - **Setup/Context**: Describe any necessary setup for the test.
+
+# Output Format
+
+The output should be in a structured format, specifically in JSON. Each test case should be an object within an array, containing the fields: "description", "input", "expectedOutput", and "setup". The entire output should be a single JSON array.
+
+# Examples
+
+1. **Example Input**:
+   - **Scenario**: Testing basic functionality of the agent's greeting response.
+   - **Description**: Verify the agent greets the user correctly.
+   - **Input**: "Hello, agent!"
+   - **Expected Output**: "Hello! How can I assist you today?"
+   - **Setup**: No special setup required.
+
+   **Example Output**:
+   ```json
+   [
+       {
+           "description": "Verify the agent greets the user correctly.",
+           "input": "Hello, agent!",
+           "expectedOutput": "Hello! How can I assist you today?",
+           "setup": "No special setup required."
+       }
+   ]
+   ```
+
+2. **Example Input**:
+   - **Scenario**: Testing the agent's handling of unrecognized commands.
+   - **Description**: Check how the agent responds to invalid input.
+   - **Input**: "xyz"
+   - **Expected Output**: "I'm sorry, I didn't understand that."
+   - **Setup**: Ensure the agent is in idle mode.
+
+   **Example Output**:
+   ```json
+   [
+       {
+           "description": "Check how the agent responds to invalid input.",
+           "input": "xyz",
+           "expectedOutput": "I'm sorry, I didn't understand that.",
+           "setup": "Ensure the agent is in idle mode."
+       }
+   ]
+   ```
+
+3. **Example Input**:
+   - **Scenario**: Testing the agent's memory feature.
+   - **Description**: Verify if the agent remembers previously stored information.
+   - **Input**: "Remember my favorite color is blue."
+   - **Expected Output**: "Got it! I'll remember that your favorite color is blue."
+   - **Setup**: Clear previous memory states.
+
+   **Example Output**:
+   ```json
+   [
+       {
+           "description": "Verify if the agent remembers previously stored information.",
+           "input": "Remember my favorite color is blue.",
+           "expectedOutput": "Got it! I'll remember that your favorite color is blue.",
+           "setup": "Clear previous memory states."
+       }
+   ]
+   ```
+
+# Notes
+
+- Ensure that the test cases encompass a wide range of functionalities, including expected behavior, error handling, and system limitations.
+- Consider including edge cases, such as maximum input lengths or unusual data formats, to test the agent's resilience.
+- Be specific in expected outputs to allow clear assessment of the agent's performance.
