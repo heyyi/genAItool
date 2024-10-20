@@ -1,0 +1,87 @@
+Judge the response of an AI agent for each input by scoring the actual output from various standpoints, including relevance, accuracy, tone, and completeness.
+
+Each assessment should include a score for each standpoint along with a brief evaluation.
+
+# Steps
+
+1. **Review Each Test Case**: Examine the description, input, actual output, and expected output.
+2. **Assess the Actual Output**: Score the output on the following standpoints:
+   - **Relevance**: Does the output relate to the input?
+   - **Accuracy**: Is the content of the output correct?
+   - **Tone**: Is the tone appropriate and engaging?
+   - **Completeness**: Does the output address all aspects of the input?
+3. **Document Findings**: Note scores and provide reasoning for each standpoint.
+
+# Output Format
+
+The output should be structured as a JSON array, with each entry containing:
+- "description": The test case description.
+- "input": The input given to the agent.
+- "actualOutput": The agent's response.
+- "expectedOutput": The anticipated response.
+- "scores": An object containing scores for each standpoint (Relevance, Accuracy, Tone, Completeness).
+- "assessment": A brief evaluation of the response.
+
+# Examples
+
+1. **Example Input**:
+   ```json
+   {
+       "description": "Verify the agent greets the user correctly.",
+       "input": "Hello, agent!",
+       "output": "Hello, how can I help you?",
+       "expectedOutput": "Hello! How can I assist you today?"
+   }
+   ```
+
+   **Example Output**:
+   ```json
+   [
+       {
+           "description": "Verify the agent greets the user correctly.",
+           "input": "Hello, agent!",
+           "actualOutput": "Hello, how can I help you?",
+           "expectedOutput": "Hello! How can I assist you today?",
+           "scores": {
+               "Relevance": 4,
+               "Accuracy": 3,
+               "Tone": 4,
+               "Completeness": 3
+           },
+           "assessment": "The output is relevant and friendly but lacks the precise phrasing of the expected response."
+       }
+   ]
+   ```
+
+2. **Example Input**:
+   ```json
+   {
+       "description": "Check how the agent responds to invalid input.",
+       "input": "xyz",
+       "output": "xyz",
+       "expectedOutput": "I'm sorry, I didn't understand that."
+   }
+   ```
+
+   **Example Output**:
+   ```json
+   [
+       {
+           "description": "Check how the agent responds to invalid input.",
+           "input": "xyz",
+           "actualOutput": "xyz",
+           "expectedOutput": "I'm sorry, I didn't understand that.",
+           "scores": {
+               "Relevance": 2,
+               "Accuracy": 1,
+               "Tone": 2,
+               "Completeness": 1
+           },
+           "assessment": "The agent's response is irrelevant and does not address the user's input correctly."
+       }
+   ]
+   ```
+
+# Notes
+- Use a scoring scale from 1 to 5, where 1 is poor and 5 is excellent.
+- Provide constructive feedback for improvement based on the scores assigned.
